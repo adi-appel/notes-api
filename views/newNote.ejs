@@ -1,0 +1,32 @@
+<h1>New Note</h1>
+<ul>
+  <% if(typeof errors != 'undefined') { %> <% errors.forEach(error=>{ %>
+  <li><%= error.message%></li>
+  <%}) %> <% }%>
+</ul>
+<form action="/notes/new-note" method="POST">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" required />
+  </div>
+  <div>
+    <label for="type">Type</label>
+    <input type="text" id="type" name="type" required />
+    <div>
+      <label for="note">Note</label>
+      <textarea
+        type="text"
+        id="note"
+        name="note"
+        cols="50"
+        rows="20"
+        required
+      ></textarea>
+    </div>
+    <button type="submit">Add Note</button>
+  </div>
+</form>
+<a href="/users/logout">Logout</a>
+<div>
+  <a href="/notes">back</a>
+</div>
